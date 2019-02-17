@@ -1,0 +1,11 @@
+﻿  Source.cpp
+c:\users\redbull\source\repos\project28\project28\source.cpp(23): warning C4244: инициализация: преобразование "sf::Int64" в "float", возможна потеря данных
+c:\users\redbull\source\repos\project28\project28\source.cpp(33): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
+c:\users\redbull\source\repos\project28\project28\source.cpp(35): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+c:\users\redbull\source\repos\project28\project28\source.cpp(38): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
+c:\users\redbull\source\repos\project28\project28\source.cpp(40): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+c:\users\redbull\source\repos\project28\project28\source.cpp(43): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
+c:\users\redbull\source\repos\project28\project28\source.cpp(45): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+c:\users\redbull\source\repos\project28\project28\source.cpp(48): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
+c:\users\redbull\source\repos\project28\project28\source.cpp(50): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+  Project28.vcxproj -> C:\Users\Redbull\source\repos\Project28\Debug\Project28.exe
