@@ -7,7 +7,7 @@ int main()
 	RenderWindow window(VideoMode(640, 400), "SFMLworks");
 
 	Image heroimage;
-	heroimage.loadFromFile("hero.png");
+	heroimage.loadFromFile("images/hero.png");
 
 	Texture herotexture;
 	herotexture.loadFromImage(heroimage);
