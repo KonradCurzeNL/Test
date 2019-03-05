@@ -1,11 +1,17 @@
 ﻿  Source.cpp
-c:\users\redbull\desktop\github\test\volk\project28\source.cpp(23): warning C4244: инициализация: преобразование "sf::Int64" в "float", возможна потеря данных
-c:\users\redbull\desktop\github\test\volk\project28\source.cpp(33): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
-c:\users\redbull\desktop\github\test\volk\project28\source.cpp(35): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-c:\users\redbull\desktop\github\test\volk\project28\source.cpp(38): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
-c:\users\redbull\desktop\github\test\volk\project28\source.cpp(40): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-c:\users\redbull\desktop\github\test\volk\project28\source.cpp(43): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
-c:\users\redbull\desktop\github\test\volk\project28\source.cpp(45): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-c:\users\redbull\desktop\github\test\volk\project28\source.cpp(48): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
-c:\users\redbull\desktop\github\test\volk\project28\source.cpp(50): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+c:\users\redbull\desktop\github\test\volk\project28\source.cpp(24): warning C4244: аргумент: преобразование "float" в "T", возможна потеря данных
+          with
+          [
+              T=int
+          ]
+c:\users\redbull\desktop\github\test\volk\project28\source.cpp(63): warning C4244: инициализация: преобразование "sf::Int64" в "float", возможна потеря данных
+c:\users\redbull\desktop\github\test\volk\project28\source.cpp(73): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
+c:\users\redbull\desktop\github\test\volk\project28\source.cpp(76): warning C4305: =: усечение из "double" в "float"
+c:\users\redbull\desktop\github\test\volk\project28\source.cpp(79): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
+c:\users\redbull\desktop\github\test\volk\project28\source.cpp(81): warning C4305: =: усечение из "double" в "float"
+c:\users\redbull\desktop\github\test\volk\project28\source.cpp(85): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
+c:\users\redbull\desktop\github\test\volk\project28\source.cpp(87): warning C4305: =: усечение из "double" в "float"
+c:\users\redbull\desktop\github\test\volk\project28\source.cpp(91): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
+c:\users\redbull\desktop\github\test\volk\project28\source.cpp(93): warning C4305: =: усечение из "double" в "float"
+c:\users\redbull\desktop\github\test\volk\project28\source.cpp(108): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
   Project28.vcxproj -> C:\Users\Redbull\Desktop\Github\Test\Volk\Debug\Project28.exe
