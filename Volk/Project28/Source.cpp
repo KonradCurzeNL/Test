@@ -2,23 +2,30 @@
 #include<iostream>
 #include "Map.h"
 #include "view.h"
+#include <string>
+#include <sstream>
 using namespace sf;
+using namespace std;
 
 class Player{
 private:
 	float x, y;
 public:
+	int playerScore;
 	float  w, h, dx, dy, speed=0;
 	int dir=0;
+	string place;
 	String File;
 	Image image;
 	Texture texture;
 	Sprite sprite;
 
+	
 	Player(String F, float X, float Y, float W, float H) {
 		//image.loadFromFile("images/"+File);
 		texture.loadFromFile(F);
 		sprite.setTexture(texture);
+		place = "";
 		w = W; h = H;
 		x = X; y = Y;
 		sprite.setTextureRect(IntRect(49, 130, w, h));
@@ -35,6 +42,8 @@ public:
 		y +=dy * time;
 		speed = 0;
 		sprite.setPosition(x, y);
+
+		interactionWithMap();
 	}
 	float getPlayerCoordinateX() {	
 		return x;
@@ -42,11 +51,55 @@ public:
 	float getPlayerCoordinateY() {	
 		return y;
 	}
+	void interactionWithMap() {
+		for (int i = y / 64; i < (y + h) / 64; i++) {
+			for (int j = x / 49; j < (x + w) / 49; j++) {
+				if (TileMap[i][j] == '0') {
+					if (dy > 0) {
+						y = i * 64 - h;
+					}
+					if (dy < 0) {
+						y = i * 64 + h;
+					}
+					if (dx > 0) {
+						x = j * 49 - w;
+					}
+					if (dx < 0) {
+						x = j * 49 + w;
+					}
+
+				}
+				if (TileMap[i][j] == 's') {
+					place = "каменной плите";
+				}
+				if (TileMap[i][j] == 'f') {
+					place = "цветах";
+				}
+				if (TileMap[i][j] == ' ') {
+					place = "земле";
+				}
+			}
+
+		}
+
+
+
+
+	}
 
 };
+
 int main()
 {
-
+	Font font;
+	font.loadFromFile("CyrilicOld.TTF");
+	Text text("", font, 20);
+	text.setFillColor(sf::Color::Red);
+	text.setStyle(Text::Bold);
+	//font.loadFromFile("CyrilicOld.TTF");
+	//Text text("", font, 20);
+	//text.setColor(Color::Green);
+	//text.setStyle(sf::Text::Bold | sf::Text::Underlined);
 	RenderWindow window(VideoMode(1600, 900), "Volk");
 	view.reset(sf::FloatRect(0, 0, 1600, 900));
 	Image map_image;
@@ -55,7 +108,7 @@ int main()
 	map.loadFromImage(map_image);
 	Sprite s_map;
 	s_map.setTexture(map);
-	Player Hero("images/hero.png", 100, 100, 49, 65);
+	Player Hero("images/hero.png", 100, 100, 49, 64);
 	Clock clock;
 	float CurrentFrame = 0;
 	while (window.isOpen())
@@ -74,25 +127,25 @@ int main()
 			if (CurrentFrame > 4) CurrentFrame -= 4;
 			Hero.dir = 1;
 			Hero.speed = 0.1;
-			Hero.sprite.setTextureRect(IntRect(49*int(CurrentFrame), 65, 49, 65)); }
+			Hero.sprite.setTextureRect(IntRect(49*int(CurrentFrame), 64, 49, 64)); }
 		if (Keyboard::isKeyPressed(Keyboard::D)) {
 			CurrentFrame += 0.005*time;
 			Hero.dir = 0;
 			Hero.speed = 0.1;
 			if (CurrentFrame > 4) CurrentFrame -= 4;
-			Hero.sprite.setTextureRect(IntRect(49*int(CurrentFrame), 130, 49, 65)); }
+			Hero.sprite.setTextureRect(IntRect(49*int(CurrentFrame), 130, 49, 64)); }
 		if (Keyboard::isKeyPressed(Keyboard::W)) { 
 			CurrentFrame += 0.005*time;
 			Hero.dir = 3;
 			Hero.speed = 0.1;
 			if (CurrentFrame > 4) CurrentFrame -= 4; 
-			Hero.sprite.setTextureRect(IntRect(49 * int(CurrentFrame), 195, 49, 65)); }
+			Hero.sprite.setTextureRect(IntRect(49 * int(CurrentFrame), 195, 49, 64)); }
 		if (Keyboard::isKeyPressed(Keyboard::S)) { 
 			CurrentFrame += 0.005*time;
 			Hero.dir = 2;
 			Hero.speed = 0.1;
 			if (CurrentFrame > 4) CurrentFrame -= 4; 
-			Hero.sprite.setTextureRect(IntRect(49 * int(CurrentFrame), 0, 49, 65)); }
+			Hero.sprite.setTextureRect(IntRect(49 * int(CurrentFrame), 0, 49, 64)); }
 		getPlayerCoordinateforView(Hero.getPlayerCoordinateX(), Hero.getPlayerCoordinateY());
 		Hero.update(time);
 		window.setView(view);
@@ -109,6 +162,11 @@ int main()
 
 				window.draw(s_map);
 			}
+		//std::ostringstream placeString;
+		//placeString << Hero.place;
+		text.setString("Ты сейчас стоишь на"+ Hero.place);
+		text.setPosition(view.getCenter().x - 600, view.getCenter().y - 300);
+		window.draw(text);
 		window.draw(Hero.sprite);
 		
 		window.display();
